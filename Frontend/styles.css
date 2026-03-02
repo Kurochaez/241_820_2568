@@ -1,3 +1,5 @@
+/* 1. ดึง Font จากโฟลเดอร์ Kanit ที่อยู่ด้านนอก */
+
 * {
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
@@ -63,6 +65,28 @@ textarea {
     text-align: center;
     margin-top: 20px;
 }
+
+.message {
+    background-color: #ddd;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    display: none;   
+}
+
+.message.success {
+    background-color: #4CAF50;
+    color: white;
+    display: block;
+}
+
+.message.danger {
+    background-color: #f44336;
+    color: white;
+    display: block;
+}
+
+
 
 .button {
     padding: 8px 20px;

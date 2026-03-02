@@ -19,10 +19,11 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mysql = require('mysql2/promise');
 const app = express();
-
+const cors  = require('cors');
 const port = 8000
 
 app.use(bodyParser.json());
+app.use(cors());
 
 let users = []
 let counter = 1;
@@ -38,7 +39,12 @@ const initDBConnection = async () => {
     })    
 }
 
-// path = GET /users สำหรับ get ข้อมูล user ทั้งหมด
+
+app.get('/users', async(req, res) => {
+    const results = await conn.query('SELECT * FROM users');
+    res.json(results[0]);
+})
+
 app.get('/users/:id', async (req, res) => {
     try{
         let id = req.params.id
@@ -97,11 +103,6 @@ app.get('/users/:id', async (req, res) => {
 //     }
 // })
 
-
-// path = GET /users // การดึงข้อมูลเท่านั้น
-// app.get('/users',(req, res) => {
-//     res.json(users);
-// })
 
 // path = POST /users // การส่งข้อมูล บาง post สามารถดึงข้อมูลได้เหมือน get
 app.post('/users', async (req, res) => {
