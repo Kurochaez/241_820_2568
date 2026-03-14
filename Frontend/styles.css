@@ -1,16 +1,36 @@
 /* 1. ดึง Font จากโฟลเดอร์ Kanit ที่อยู่ด้านนอก */
+@font-face {
+    font-family: 'Kanit';
+    /* ../ หมายถึงถอยออกจากโฟลเดอร์ Frontend 1 ชั้น */
+    src: url('./Kanit/Kanit-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 
+@font-face {
+    font-family: 'Kanit';
+    src: url('./Kanit/Kanit-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+
+/* 2. ตั้งค่าพื้นฐานและ Layout */
 * {
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Kanit', sans-serif;
 }
 
 body {
     background-color: #f2f2f2;
     margin: 0;
-    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
+/* 3. ตกแต่งฟอร์มให้ดูดี */
 .container {
     width: 400px;
     margin: 40px auto;
